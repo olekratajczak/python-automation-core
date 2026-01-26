@@ -1,0 +1,13 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pychache__/
+*.pyc
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# Reports / artifacts
+reports/
