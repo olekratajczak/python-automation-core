@@ -1,0 +1,6 @@
+{
+    "device_id": "ABC123",
+    "status": "ACTIVE",
+    "temperature": 23.5,
+    "battery": 87
+}
