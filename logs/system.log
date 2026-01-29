@@ -1,0 +1,8 @@
+INFO System started
+INFO Initializing modules
+WARNING Low memory
+ERROR Connection timeout
+INFO Retrying connection
+ERROR Deviec not responding
+INFO System shutdown
+CRITICAL Kernel panic
