@@ -1,5 +1,7 @@
 import json
 from typing import Dict, List
+from core.logger import setup_logger
+
 
 REQUIRED_FIELDS = ["device_id", "status", "temperature", "battery"]
 
@@ -23,15 +25,17 @@ def validate_fields(data: Dict) -> List[str]:
     return errors
 
 def main() -> None:
+    logger = setup_logger(name="data_validator", log_file="reports/data_validator.log")
+
     data = load_json("data/sample.json")
     errors = validate_fields(data)
 
     if errors:
-        print("Validation failed:")
+        logger.error("Validation failed with %s error(s)", len(errors))
         for error in errors:
-            print(f"- {error}")
+            logger.error("ERR: %s", error)
     else:
-        print("Data validation passed")
+        logger.info("Data validation passed")
 
 if __name__ == "__main__":
     main()
