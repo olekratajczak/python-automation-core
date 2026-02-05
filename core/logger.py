@@ -6,7 +6,7 @@ def setup_logger(name: str = "automation", log_file: str = "reports/app.log") ->
     Path(log_file).parent.mkdir(parents=True, exist_ok=True)
 
     logger = logging.getLogger(name)
-    logger.setLevel(logging.info)
+    logger.setLevel(logging.INFO)
     logger.handlers.clear()
 
     formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
