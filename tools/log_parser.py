@@ -26,7 +26,8 @@ def main() -> None:
     logger = setup_logger(name="log_parser", log_file="reports/log_parser.log")
 
     logger.info("Starting log parsing")
-    logs = load_logs("logs/system.log")
+    BASE_DIR = Path(__file__).resolve().parents[1]
+    logs = load_logs(str(BASE_DIR / "logs" / "system.log"))
     logger.info("Loaded %s lines from log file", len(logs))
 
     errors = find_errors(logs)

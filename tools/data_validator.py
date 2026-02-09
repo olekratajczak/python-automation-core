@@ -1,7 +1,7 @@
 import json
 from typing import Dict, List
 from core.logger import setup_logger
-
+from pathlib import Path
 
 REQUIRED_FIELDS = ["device_id", "status", "temperature", "battery"]
 
@@ -27,7 +27,9 @@ def validate_fields(data: Dict) -> List[str]:
 def main() -> None:
     logger = setup_logger(name="data_validator", log_file="reports/data_validator.log")
 
-    data = load_json("data/sample.json")
+    BASE_DIR = Path(__file__).resolve().parents[1]  # root repo
+    data = load_json(str(BASE_DIR / "data" / "sample.json"))
+
     errors = validate_fields(data)
 
     if errors:
